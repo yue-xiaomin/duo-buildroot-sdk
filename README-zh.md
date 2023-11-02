@@ -122,7 +122,7 @@ cd duo-buildroot-sdk/
 ### 分步编译
 
 可依次输入如下命令
-
+SD
 ```bash
 export MILKV_BOARD=milkv-duo
 source milkv/boardconfig-milkv-duo.sh
@@ -133,8 +133,34 @@ clean_all
 build_all
 pack_sd_image
 ```
-
 生成的固件位置: `install/soc_cv1800b_milkv_duo_sd/milkv-duo.img`
+
+NOR
+```bash
+export MILKV_BOARD=milkv-duo
+source milkv/boardconfig-milkv-duo-spinor.sh
+
+source build/milkvsetup.sh
+defconfig cv1800b_milkv_duo_spinor
+clean_all
+build_all
+
+```
+生成的固件位置: `install/soc_cv1800b_milkv_duo_spinor/`下的升级包解压到sd卡根目录插入启动即可自动升级
+
+NAND
+```bash
+export MILKV_BOARD=milkv-duo
+source milkv/boardconfig-milkv-duo-spinand.sh
+
+source build/milkvsetup.sh
+defconfig cv1800b_milkv_duo_spinand
+clean_all
+build_all
+
+```
+生成的固件位置: `install/soc_cv1800b_milkv_duo_spinand/`下的升级包解压到sd卡根目录插入启动即可自动升级
+
 
 ## SD卡烧录
 

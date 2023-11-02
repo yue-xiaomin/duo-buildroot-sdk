@@ -18,7 +18,7 @@ function _build_default_env()
 
 function gettop()
 {
-  local TOPFILE=build/cvisetup.sh
+  local TOPFILE=build/milkvsetup.sh
   if [ -n "$TOP" -a -f "$TOP/$TOPFILE" ] ; then
     # The following circumlocution ensures we remove symlinks from TOP.
     (cd "$TOP"; PWD= /bin/pwd)
@@ -258,10 +258,10 @@ function build_middleware()
     make all || return "$?"
   popd
 
-  pushd "$MW_PATH"/sample
-    make all || return "$?"
-    find ./ -type f \( -iname "sample_*" ! -iname "*.*" \) -exec cp '{}' $SYSTEM_OUT_DIR/usr/bin \;
-  popd
+  #pushd "$MW_PATH"/sample
+  #  make all || return "$?"
+  #  find ./ -type f \( -iname "sample_*" ! -iname "*.*" \) -exec cp '{}' $SYSTEM_OUT_DIR/usr/bin \;
+  #popd
 
   # copy mw lib
   cp -af "$MW_PATH"/lib/*.so*  "$SYSTEM_OUT_DIR"/lib

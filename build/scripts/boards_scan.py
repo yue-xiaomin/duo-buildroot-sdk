@@ -484,6 +484,7 @@ def print_usage():
 
 config_list_tmpl = """
     configurations {{
+        default = "config-{chip}_{board}";
         {config}
     }};
 """
@@ -547,7 +548,7 @@ def gen_single_board_its(chip, board, skip_ramdisk=False):
     )
     its_str["config"] = cfg_tmpl.format(chip=chip, board=board)
 
-    config_list = config_list_tmpl.format(**its_str)
+    config_list = config_list_tmpl.format(chip=chip, board=board, **its_str)
     fdt_list = fdt_list_tmpl.format(**its_str)
 
     with open(its_path, "r") as fp:
@@ -657,3 +658,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
