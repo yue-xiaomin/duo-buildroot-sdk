@@ -180,7 +180,7 @@ ifeq ($(ARCH), arm64)
 		-exec cp {} ${UBOOT_PATH}/arch/arm/dts/ \;
 	${Q}find ${DTS_DEFATUL_PATHS} -name *.dts* -exec cp {} ${UBOOT_PATH}/arch/arm/dts/ \;
 else
-	${Q}find ${BUILD_PATH}/boards/${CHIP_ARCH_L} \
+	${Q}find ${BUILD_PATH}/boards/${CHIP_ARCH_L}/${CHIP}_${BOARD} \
 		\( -path "*linux/*.dts*" -o -path "*dts_${ARCH}/*.dts*" \) \
 		-exec cp {} ${UBOOT_PATH}/arch/${ARCH}/dts/ \;
 	${Q}find ${DTS_DEFATUL_PATHS} -name *.dts* -exec cp {} ${UBOOT_PATH}/arch/${ARCH}/dts/ \;
